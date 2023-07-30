@@ -5,7 +5,9 @@ CFLAGS= -std=c++98 -Wall -Wextra -Werror
 SRCS =	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
-		Cat.cpp 
+		Cat.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp \
 		
 %.o:%.cpp
 	${CC} ${CFLAGS} -c $^ -o $@
