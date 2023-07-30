@@ -1,11 +1,13 @@
 #include "Dog.h"
 
-Dog::Dog() {
+Dog::Dog(): Animal() {
     std::cout << "Default Dog Constructor called" << std::endl;
+    this->type = "Dog";
 }
 
-Dog::Dog(const Dog& other) {
+Dog::Dog(const Dog& other): Animal() {
     std::cout << "Dog Copy Constructor called" << std::endl;
+    this->type = "Dog";
     *this = other;
 }
 
@@ -21,6 +23,10 @@ Dog::~Dog() {
     std::cout << "Dog Destructor called" << std::endl;
 }
 
-void Dog::setType(std::string type) {
-    this->type = type;
+void Dog::makeSound() const {
+    std::cout << "Default Dog Sound" << std::endl;
+}
+
+std::string Dog::getType(void) const {
+    return (this->type);
 }
