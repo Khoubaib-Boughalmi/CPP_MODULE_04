@@ -41,6 +41,16 @@ void MateriaSource::learnMateria(AMateria* passedMateria) {
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-    // AMateria *newMateria = AMateria;
-
+    int i = 0;
+    while (this->learnMateriaInventory[i] && i < 4 && type != this->learnMateriaInventory[i]->getType())
+        i++;
+    if(i > 3)
+    {
+        std::cout << "No more space left in Materia Source" << std::endl;
+        return 0;
+    }
+    if(this->learnMateriaInventory[i])
+        return this->learnMateriaInventory[i]->clone();
+    else
+        return 0;
 }
