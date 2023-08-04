@@ -7,12 +7,12 @@
 class Dog: public Animal
 {
     private:
-        Brain *elGatoBrain;
+        Brain *elPerroBrain;
     public:
         Dog();
         Dog(const Dog& other);
         Dog& operator=(const Dog& other);
-        ~Dog();
+        virtual ~Dog();
         void makeSound() const;
         std::string getType(void) const;
         Brain *getBrain(void);
