@@ -2,7 +2,13 @@ NAME=EX03
 CC=c++
 CFLAGS= -std=c++98 -Wall -Wextra -Werror
 
-SRCS= main.cpp
+SRCS=	main.cpp \
+		MateriaSource.cpp \
+		AMateria.cpp \
+		Character.cpp \
+		Ice.cpp \
+		Cure.cpp 
+
 
 %.o:%.cpp
 	${CC} ${CFLAGS} -c $^ -o $@

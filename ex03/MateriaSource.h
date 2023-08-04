@@ -3,7 +3,7 @@
 
 #include "IMateriaSource.h"
 
-class MateriaSource
+class MateriaSource: public IMateriaSource
 {
     private:
         AMateria *learnMateriaInventory[4];
