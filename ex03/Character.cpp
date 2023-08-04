@@ -3,7 +3,10 @@
 Character::Character() {
     std::cout << "This is Character " << this->_name << " Default Constructor" << std::endl;
     for (size_t i = 0; i < 4; i++)
+    {
         this->inventory[i] = NULL;
+        this->unequipInventory[i] = NULL;
+    }
 }
 
 Character::Character(std::string name): _name(name){
@@ -69,8 +72,17 @@ void Character::unequip(int idx) {
         std::cout << "inventory is already empty" << std::endl;
         return ;
     }
-    this->inventory[idx] = NULL;
-    std::cout << "unequiped invertory of index: "<< idx << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        if(!this->unequipInventory[i])
+        {
+            this->unequipInventory[i] = this->inventory[idx];
+            this->inventory[idx] = NULL;
+            std::cout << "unequiped invertory of index: "<< idx << std::endl;
+            return ;
+        }
+    }
+    std::cout << "No more space left in the unequipInventory" << std::endl;    
 }
 
 void Character::use(int idx, ICharacter& target) {

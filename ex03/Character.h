@@ -7,6 +7,7 @@ class Character: public ICharacter
 {
     protected:
         AMateria    *inventory[4];
+        AMateria    *unequipInventory[4];
         std::string const _name;
     public:
     Character();
