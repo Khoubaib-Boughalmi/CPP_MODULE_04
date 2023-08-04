@@ -4,6 +4,7 @@
 
 int main()
 {
+    // Animal *animal = new Animal(); //wrong
     Animal *cat = new Cat();
     Animal *dog = new Dog();
     cat->makeSound();
