@@ -38,8 +38,12 @@ Character & Character::operator=(const Character &other) {
 Character::~Character() {
     std::cout << "Character " << this->getName() << " Destructor Called" << std::endl;
     for (size_t i = 0; i < 4; i++)
-        delete this->inventory[i];
-    
+    {
+        if(this->unequipInventory[i])
+            delete this->unequipInventory[i];
+        if(this->inventory[i])
+            delete this->inventory[i];
+    }
 }
 
 std::string const & Character::getName() const {
@@ -56,7 +60,17 @@ void Character::equip(AMateria* m) {
     while (this->inventory[i] && i < 4)
         i++;
     if(i < 4)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if(this->inventory[j] == m)
+            {
+                this->inventory[i] = m->clone();
+                return;
+            }
+        }
         this->inventory[i] = m;
+    }
     else
         std::cout << "Inventory is full" << std::endl;
 }

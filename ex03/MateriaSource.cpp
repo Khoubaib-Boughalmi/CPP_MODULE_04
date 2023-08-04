@@ -4,7 +4,6 @@ MateriaSource::MateriaSource() {
     std::cout << "This is MateriaSource Default Constructor" << std::endl;
     for (size_t i = 0; i < 4; i++)
         this->learnMateriaInventory[i] = NULL;
-
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other) {
@@ -29,6 +28,11 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &other) {
 
 MateriaSource::~MateriaSource() {
     std::cout << "MateriaSource Destructor Called" << std::endl;
+    for (size_t i = 0; i < 4; i++)
+    {
+        if(this->learnMateriaInventory[i])
+            delete this->learnMateriaInventory[i];
+    }
 }
 
 void MateriaSource::learnMateria(AMateria* passedMateria) {
